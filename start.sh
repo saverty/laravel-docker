@@ -10,7 +10,13 @@ docker run --rm \
 
 source ~/.bashrc
 docker-compose build
+
+git clone https://github.com/saverty/laravel-docker.git
+
 docker-compose up
+
+
+
 #php /usr/local/bin/composer.phar install
 cp /var/www/.env.example /var/www/.env
 rm /var/www/.env.example
