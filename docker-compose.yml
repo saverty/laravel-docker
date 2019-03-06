@@ -6,24 +6,19 @@ services:
       dockerfile: Dockerfile
     container_name: laravel_app
     volumes:
-      - "./:/var/www"
+      - "./:/laravel-docker"
 
   #Nginx Service
   webserver:
     image: nginx:alpine
     container_name: laravel_webserver
     restart: unless-stopped
-    working_dir: /code
-    command: >
-        bash -c "php artisan migrate
-        && php artisan key:generate"
+    working_dir: /laravel-docker
     tty: true
     ports:
       - "8005:8005"
     volumes:
-      - "./:/code"
+      - "./:/laravel-docker"
       - "./server.conf:/etc/nginx/conf.d/default.conf:ro"
     links:
       - app
-
-
