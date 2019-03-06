@@ -6,19 +6,19 @@ services:
       dockerfile: Dockerfile
     container_name: laravel_app
     volumes:
-      - "./:/laravel-docker"
+      - "./:/home/steveavertydeveloper/laravel-docker"
 
   #Nginx Service
   webserver:
     image: nginx:alpine
     container_name: laravel_webserver
     restart: unless-stopped
-    working_dir: /laravel-docker
+    working_dir: /home/steveavertydeveloper/laravel-docker
     tty: true
     ports:
       - "8005:8005"
     volumes:
-      - "./:/laravel-docker"
+      - "./:/home/steveavertydeveloper/laravel-docker"
       - "./server.conf:/etc/nginx/conf.d/default.conf:ro"
     links:
       - app
