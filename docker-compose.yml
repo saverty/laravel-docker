@@ -17,7 +17,6 @@ services:
     tty: true
     ports:
       - "8005:8005"
-    read_only: true
     volumes:
       - "./:/home/steveavertydeveloper/laravel-docker"
       - "./server.conf:/etc/nginx/conf.d/default.conf:ro"
