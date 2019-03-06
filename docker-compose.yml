@@ -6,12 +6,7 @@ services:
       dockerfile: Dockerfile
     container_name: laravel_app
     volumes:
-      - type: volume
-        source: ./
-        target: /home/steveavertydeveloper/laravel-docker
-        read_only: true
-        volume:
-          nocopy: true
+      - "./:/home/steveavertydeveloper/laravel-docker"
 
   #Nginx Service
   webserver:
@@ -22,13 +17,9 @@ services:
     tty: true
     ports:
       - "8005:8005"
+    read_only: true
     volumes:
-      - type: volume
-        source: ./
-        target: /home/steveavertydeveloper/laravel-docker
-        read_only: true
-        volume:
-          nocopy: true
+      - "./:/home/steveavertydeveloper/laravel-docker"
       - "./server.conf:/etc/nginx/conf.d/default.conf:ro"
     links:
       - app
