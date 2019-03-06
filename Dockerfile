@@ -6,6 +6,6 @@ RUN apt-get update && apt-get install -y libmcrypt-dev \
     && chmod +x /usr/local/bin/composer \
     && apt-get install -y git \
 
-WORKDIR /home/savertydeveloper/laravel_docker
+WORKDIR /home/steveavertydeveloper/laravel_docker
 
 
